@@ -57,6 +57,7 @@ export default function OrderCard() {
   }
 
   return (
+    <div ref={printRef}>
       <div className='border border-gray-500/20 rounded-lg overflow-hidden relative pb-20'>
       <div className='bg-[#DCF9ED] py-8 flex justify-between px-3 items-center'>
         <div>
@@ -73,7 +74,7 @@ export default function OrderCard() {
         </div>
       </div>
       <div>
-      <div ref={printRef}>
+
         <div className='py-12 px-2'>
             <p className='font-bold'>Order details</p>
             <div className="border-b-[1px] border-black/80">
@@ -119,7 +120,7 @@ export default function OrderCard() {
 
     </div>
     </div>
-      <div className="absolute bottom-3 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3">
+      <div className="absolute lg:bottom-3 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3 -translate-y-12 md:-translate-x-1/3">
         <button onClick={print} className='text-sm flex items-center justify-center gap-2 border border-gray-500/20 p-2 rounded-md px-8'>
           <Printer size={20}/>  Print
         </button>

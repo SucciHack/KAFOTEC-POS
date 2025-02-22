@@ -8,8 +8,8 @@ export default async function page() {
 
   const products = await getProducts()
   return (
-    <div className='text-black flex'>
-      <div className='grid grid-cols-4 px-6 gap-3 w-[70%]'>
+    <div className='text-black lg:flex grid grid-cols-1'>
+      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 px-6 gap-3 lg:w-[70%]'>
         {
           products?.data.map((product,i)=>{
             const prod={
@@ -24,7 +24,7 @@ export default async function page() {
           })
         }
       </div>
-      <div className='w-[25%] pr-2 md:fixed top-20 right-1'>
+      <div className='lg:w-[25%] p-6 md:pr-2 lg:fixed top-20 right-1'>
         <OrderCard/>
       </div>
     </div>

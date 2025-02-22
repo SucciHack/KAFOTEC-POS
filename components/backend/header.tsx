@@ -41,7 +41,7 @@ function maximizeSite() {
       <span className="sr-only">Add new</span>
     </Button>
     <button onClick={maximizeSite}><Maximize /></button>
-    <Avatar className='mr-48'>
+    <Avatar className='lg:mr-48'>
       <AvatarImage src="/placeholder.svg" />
       <AvatarFallback>CN</AvatarFallback>
     </Avatar>
