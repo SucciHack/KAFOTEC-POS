@@ -4,8 +4,6 @@ import ProductCard from '@/components/product-card'
 import React from 'react'
 
 export default async function page() {
-  
-
   const products = await getProducts()
   return (
     <div className='text-black lg:flex grid grid-cols-1'>
@@ -24,7 +22,7 @@ export default async function page() {
           })
         }
       </div>
-      <div className='lg:w-[25%] p-6 md:pr-2 lg:fixed top-20 right-1'>
+      <div className='lg:w-[25%] p-6 md:pr-2 md:p-0 lg:fixed top-20 right-1'>
         <OrderCard/>
       </div>
     </div>

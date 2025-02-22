@@ -12,6 +12,7 @@ import {
     LogOut,
      MoreHorizontal,
     Plus,
+    ShoppingCart,
     Sparkles,
     Trash2,
   } from "lucide-react";
@@ -46,10 +47,9 @@ import {
   import {
     AudioWaveform,
     Command,
-        Frame,
     GalleryVerticalEnd,
-     Map,
-     PieChart,
+    Map,
+    PieChart,
     SquareTerminal,
   } from "lucide-react";
   import {
@@ -110,11 +110,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
         ],
       },
     ],
-    projects: [
+    OtherDetails: [
       {
-        name: "Design Engineering",
-        url: "#",
-        icon: Frame,
+        name: "Orders",
+        url: "/dashboard/orders",
+        icon: ShoppingCart,
       },
       {
         name: "Sales & Marketing",
@@ -232,7 +232,7 @@ export default function  SidebarComp() {
           <SidebarGroup className="group-data-[collapsible=icon]:hidden">
             <SidebarGroupLabel>Projects</SidebarGroupLabel>
             <SidebarMenu>
-              {data.projects.map((item) => {
+              {data.OtherDetails.map((item) => {
                 const Icon = item.icon;
                 return (
                   <SidebarMenuItem key={item.name}>

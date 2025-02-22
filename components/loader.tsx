@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const Loader = () => {
   return (
-    <StyledWrapper>
+    <StyledWrapper className='flex justify-center translate-y-72 h-screen'>
       <div className="dot-spinner">
         <div className="dot-spinner__dot" />
         <div className="dot-spinner__dot" />
@@ -23,7 +23,7 @@ const StyledWrapper = styled.div`
   .dot-spinner {
     --uib-size: 2.8rem;
     --uib-speed: .9s;
-    --uib-color: #183153;
+    --uib-color: oklch(0.792 0.209 151.711);
     position: relative;
     display: flex;
     align-items: center;

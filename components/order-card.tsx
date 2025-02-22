@@ -120,7 +120,7 @@ export default function OrderCard() {
 
     </div>
     </div>
-      <div className="absolute lg:bottom-3 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3 -translate-y-12 md:-translate-x-1/3">
+      <div className="absolute lg:bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3 md:-translate-y-12 md:-translate-x-1/3 lg:-translate-x-1/2">
         <button onClick={print} className='text-sm flex items-center justify-center gap-2 border border-gray-500/20 p-2 rounded-md px-8'>
           <Printer size={20}/>  Print
         </button>
