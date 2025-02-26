@@ -26,7 +26,7 @@ export function FinanceChart() {
     fetchData()
   }, [])
   return (
-    <ResponsiveContainer width="80%" height={500} className={"lg:absolute lg:bottom-12 md:mt-12"}>
+    <ResponsiveContainer width="80%" height={500} className={"lg:absolute lg:bottom-12 md:mt-16"}>
       <BarChart data={formattedExpenseData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <XAxis 
           dataKey="name" 
