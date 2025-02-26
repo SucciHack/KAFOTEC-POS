@@ -25,6 +25,7 @@ export default function Register() {
     formState: { errors },
   } = useForm<RegisterInputProps>();
   async function onSubmit(data: RegisterInputProps) {
+    console.log(data)
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
     setIsLoading(true)
     try {

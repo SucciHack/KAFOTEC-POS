@@ -5,6 +5,7 @@ import bcrypt from "bcrypt"
 export async function POST(request:NextRequest) {
     try {
         const data = await request.json()
+        console.log("data from the from",data)
         const {email, password,phone,fullName} = data
         const existingUser = await db.user.findUnique({
             where:{
@@ -28,6 +29,7 @@ export async function POST(request:NextRequest) {
                 fullName
             }
         })
+        console.log("this is new user",newUser)
         return NextResponse.json({
             data:newUser,
             message:"created",
