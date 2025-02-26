@@ -138,6 +138,9 @@ export function MainNav() {
               </Avatar>
               <span className="hidden md:inline text-sm font-medium">Dashboard</span>
             </Link>
+            <Link href="/logIn" className="hidden md:inline text-sm font-bold">
+              LogIn
+            </Link>
               <button onClick={()=> deleteSession2()} className="hidden md:inline text-sm font-bold">LogOut</button>
           </div>
         </div>
