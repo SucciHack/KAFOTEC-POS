@@ -35,3 +35,11 @@ const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
       return []
     }
   })
+
+export async function fetchExpense() {
+  return await db.expense.findMany({
+    include: {
+      order: true,
+    },
+  });
+}

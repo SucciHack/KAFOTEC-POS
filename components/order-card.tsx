@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { EllipsisVertical, Loader, Mouse, Printer, Trash2, Truck } from 'lucide-react'
 import { useStore } from '@/store/store'
 import toast from 'react-hot-toast'
+import { nanoid } from 'nanoid'
 
 export default function OrderCard() {
   const {Items,handleDelete} = useStore((state)=>state)
@@ -23,15 +24,23 @@ export default function OrderCard() {
       window.location.reload();
     }
   }
+
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
   const date = new Date().toDateString()
+  const generateReceiptId = (): string => {
+    return nanoid(6).toLocaleUpperCase();
+  };
+
+  const receiptId = useRef(generateReceiptId()).current;
+
+
   const orderData = {
     items:Items,
     subtotal: Number(Subtotal),
     tax: 0,
     total: Number(Subtotal),
+    receiptId: receiptId
   };
-  console.log(orderData)
   async function createOrder(){
     try {
       setLoading(true)
@@ -42,11 +51,14 @@ export default function OrderCard() {
         },
         body:JSON.stringify(orderData)
       })
+      if(response.status === 400){
+        toast.error("Order must contain at least one item")
+      }
       if(response.status === 201){
         toast.success("order saved to database")
       }
       if(response.status === 500){
-        toast.error("no order entered")
+        toast.error("something went wrong")
       }
     } catch (error) {
       console.log(error)
@@ -57,11 +69,12 @@ export default function OrderCard() {
   }
 
   return (
+    <div>
     <div ref={printRef}>
-      <div className='border border-gray-500/20 rounded-lg overflow-hidden relative pb-20'>
+        <div className='border border-gray-500/20 rounded-lg relative pb-20'>
       <div className='bg-[#DCF9ED] py-8 flex justify-between px-3 items-center'>
         <div>
-            <p className=' font-bold'>Order Oe31b70H</p>
+            <p className=' font-bold'>Order {orderData.receiptId}</p>
             <p className=' text-gray-500/70'>Date: {date}</p>
         </div>
         <div className='flex gap-2'>
@@ -119,8 +132,9 @@ export default function OrderCard() {
       </div>
 
     </div>
-    </div>
-      <div className="absolute lg:bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3 md:-translate-y-12 md:-translate-x-1/3 lg:-translate-x-1/2">
+        </div>
+        </div>
+        <div className="absolute lg:bottom-0 left-1/2 -translate-x-1/2 w-full flex justify-center gap-3 md:-translate-y-12 md:-translate-x-1/3 lg:-translate-x-1/2 lg:-translate-y-5">
         <button onClick={print} className='text-sm flex items-center justify-center gap-2 border border-gray-500/20 p-2 rounded-md px-8'>
           <Printer size={20}/>  Print
         </button>
@@ -136,6 +150,7 @@ export default function OrderCard() {
           )
         }
       </div>
+      
     </div>
   )
 }

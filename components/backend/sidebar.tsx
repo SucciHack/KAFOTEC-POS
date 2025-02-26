@@ -2,6 +2,7 @@
 import React from 'react'
 import {
     BadgeCheck,
+    BadgeDollarSign,
     Bell,
     ChevronRight,
     ChevronsUpDown,
@@ -48,8 +49,6 @@ import {
     AudioWaveform,
     Command,
     GalleryVerticalEnd,
-    Map,
-    PieChart,
     SquareTerminal,
   } from "lucide-react";
   import {
@@ -92,6 +91,10 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
             title: "Product Form",
             url: "/dashboard/product-entry-form",
           },
+          {
+            title: "Expense Form",
+            url: "/dashboard/expenses-form",
+          },
         ],
       },
       {
@@ -117,15 +120,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
         icon: ShoppingCart,
       },
       {
-        name: "Sales & Marketing",
-        url: "#",
-        icon: PieChart,
+        name: "Finances",
+        url: "/dashboard/finance-page",
+        icon: BadgeDollarSign,
       },
-      {
-        name: "Travel",
-        url: "#",
-        icon: Map,
-      },
+
     ],
   };
 export default function  SidebarComp() {

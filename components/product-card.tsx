@@ -20,8 +20,8 @@ export default function ProductCard({product}:{product:NewProps}) {
 
 
   return (
-    <div className='bg-[#F6FDFA] min-h-[300px] rounded-lg overflow-hidden border border-gray-600/20 cardFont'>
-        <div className='flex justify-center items-center py-8 bg-[#DCF9ED]'>
+    <div className='bg-white min-h-[300px] rounded-lg overflow-hidden border border-gray-600/20 cardFont'>
+        <div className='flex justify-center items-center py-8 bg-blue-100/70'>
             <Image src={product.productImage} alt='' width={150} height={150} className='w-[100px]' />
         </div>
         <div>

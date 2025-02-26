@@ -35,9 +35,10 @@ export default function Register() {
         },
         body:JSON.stringify(data)
       })
-      toast.success("Account created successfully")
-      reset()
-      console.log(user)
+      if(user.status === 201){
+        toast.success("Account created successfully")
+        reset()
+      }
     } catch (error) {
         console.log(error)
         toast.error("failed to create user")

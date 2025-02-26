@@ -1,4 +1,3 @@
-// import { db } from "@/prisma/db";
 import { db } from "@/prisma/db";
 import { NewProps } from "@/store/store";
 import { NextRequest, NextResponse } from "next/server";
@@ -6,9 +5,19 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(request:NextRequest) {
     try {
         const data= await request.json()
-        const {items,subtotal,tax,total} = data
+        const {items,receiptId,subtotal,tax,total} = data
+        if (!items || items.length === 0) {
+            return NextResponse.json({
+                data: null,
+                error: "No order items provided",
+                message: "Order must contain at least one item"
+            }, {
+                status: 400
+            });
+        }
         const newOrder = await db.order.create({
             data:{
+                receiptId,
                 subtotal,
                 tax,
                 total
@@ -20,7 +29,7 @@ export async function POST(request:NextRequest) {
                 description:i.description,
                 price:i.price,
                 qty:i.qty,
-                orderId:newOrder.id
+                orderId:newOrder.id,
             }
         })
         await db.orderItem.createMany({
@@ -48,12 +57,13 @@ export async function GET() {
     try {
         const orders = await db.order.findMany({
             include:{
-                orderItems: true
+                orderItems: true,
+                expenses: true
             }
         })
         return NextResponse.json({
             data:orders,
-            message:"fetched successfuly",
+            message:"fetched successfully",
             error:null
         },{
             status:200

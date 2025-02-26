@@ -67,12 +67,27 @@ model orderItem {
 
 model Order {
   id         String      @id @default(auto()) @map("_id") @db.ObjectId
+  receiptId String      @unique
   subtotal   Int
   tax        Int
   total      Int
   orderItems orderItem[]
+  expenses   Expense[]
 
 
   createdAt  DateTime   @default(now())
   updatedAt  DateTime   @updatedAt
+}
+
+model Expense {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId     String?  @db.ObjectId // Optional: Link expense to an order if applicable
+  order       Order?   @relation(fields: [orderId], references: [id])
+  category    String   // e.g., "Supplies", "Shipping", "Utilities"
+  amount      Int      // Expense amount
+  description String?  // Optional notes about the expense
+  receiptUrl  String?  // Optional URL for storing receipt images
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
