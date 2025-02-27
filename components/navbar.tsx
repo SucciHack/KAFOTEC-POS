@@ -54,7 +54,7 @@ export function MainNav() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <Image src="/Untitled design.jpg" alt="" className="text-xl font-bold" width={100} height={30}/>
+              <Image src="/Untitled-design1.png" alt="" className="text-xl font-bold" width={150} height={30}/>
             </Link>
           </div>
 
