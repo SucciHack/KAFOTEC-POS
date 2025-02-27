@@ -85,6 +85,11 @@ const data = {
       icon: Home,
     },
     {
+      name: "Expenses Form",
+      url: "/dashboard/expenses-form",
+      icon: Home,
+    },
+    {
       name: "Orders",
       url: "/dashboard/orders",
       icon: ShoppingCart,
