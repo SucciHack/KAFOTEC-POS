@@ -131,7 +131,7 @@ export function MainNav() {
 
           {/* User Menu */}
           <div className="flex items-center space-x-4">
-            <Link href="/dashboard" className="flex items-center space-x-2">
+            <Link href="/dashboard/finance-page" className="flex items-center space-x-2">
               <Avatar className="h-8 w-8">
                 <AvatarImage src="avatar-profile.jpg" alt="User" />
                 <AvatarFallback>U</AvatarFallback>
