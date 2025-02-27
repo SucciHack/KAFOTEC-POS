@@ -4,7 +4,6 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import { getSession } from '@/lib/dal'
 import { redirect } from 'next/navigation'
 import React, { ReactNode } from 'react'
-
 export default async function layout({children}:{children:ReactNode}) {
     const session = await getSession()
     if(!session){

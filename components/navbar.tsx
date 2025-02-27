@@ -7,6 +7,7 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { deleteSession1 } from "@/actions/action"
 import toast from "react-hot-toast"
+import Image from "next/image"
 
 const features = [
   {
@@ -53,7 +54,7 @@ export function MainNav() {
           {/* Logo */}
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
-              <span className="text-xl font-bold"><span className="text-blue-500 text-2xl">KAFOTEC</span> Admin Pro</span>
+              <Image src="/Untitled design.jpg" alt="" className="text-xl font-bold" width={100} height={30}/>
             </Link>
           </div>
 
