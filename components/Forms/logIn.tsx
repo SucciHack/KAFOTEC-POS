@@ -36,7 +36,7 @@ export default function LogIn() {
         toast.error("wrong credentials")
       }else if(response.status === 200){
         toast.success("LoggedIn successfully")
-        router.push("/dashboard")
+        router.push("/dashboard/finance-page")
       }else{
         toast.error("something went wrong")
       }
