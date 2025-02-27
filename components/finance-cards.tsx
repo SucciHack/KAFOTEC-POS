@@ -16,7 +16,7 @@ export function FinanceCards() {
   const [timePeriodExpenses, setTimePeriodExpenses] = useState(0)
   const [timePeriodProfit, setTimePeriodProfit] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
-  const [timePeriod, setTimePeriod] = useState("yesterday")
+  const [timePeriod, setTimePeriod] = useState("today")
   const [noSales, setNoSales] = useState(false)
 
   // Fetch overall totals when the component mounts
