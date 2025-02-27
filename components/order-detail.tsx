@@ -16,6 +16,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Separator } from "@/components/ui/separator"
 import { OrderWithItems } from "@/actions/action"
+import Loader from "./loader"
 
 export default function OrderDetails({ order }: { order: OrderWithItems }) {
   const [isLoading, setIsLoading] = useState(false)
@@ -31,6 +32,9 @@ export default function OrderDetails({ order }: { order: OrderWithItems }) {
       document.body.innerHTML = originalContents
     }
     setTimeout(() => setIsLoading(false), 1000)
+  }
+  if(isLoading){
+    return <Loader/>
   }
 
   return (

@@ -1,4 +1,5 @@
-import { FinanceCards } from '@/components/finace-cards'
+
+import { FinanceCards } from '@/components/finance-cards'
 import { FinanceChart } from '@/components/finance-chart'
 import React from 'react'
 

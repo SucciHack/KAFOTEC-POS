@@ -9,6 +9,7 @@ export interface Order extends PrismaOrder {
   orderItems: orderItem[];
 }
 import { useEffect, useState } from "react";
+import Loader from "./loader";
 
 
 export default function OrdersTable() {
@@ -19,7 +20,7 @@ export default function OrdersTable() {
 
   useEffect(() => {
     async function fetchOrders() {
-      const fetchedOrders = await getOrders();
+      const fetchedOrders = await getOrders("all");
       const ordersWithReceiptId = fetchedOrders.map(order => ({
         ...order,
       }));
@@ -30,7 +31,7 @@ export default function OrdersTable() {
   }, []);
 
   if (loading) {
-    return <p className="text-4xl text-gray-700/40 mt-16 ml-28">Loading...</p>;
+    return <Loader/>;
   }
 
   return (

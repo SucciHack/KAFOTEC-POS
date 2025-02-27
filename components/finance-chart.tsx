@@ -11,8 +11,8 @@ export function FinanceChart() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const expenseData = await fetchExpense()
-        const orders = await getOrders()
+        const expenseData = await fetchExpense("last30days")
+        const orders = await getOrders("last30days")
         const formattedData = expenseData.map((expense) => ({
           name: new Date(expense.createdAt).toLocaleString('default', { month: 'short' }),
           income: orders.map((order)=> order.total).reduce((acc, total) => acc + total, 0),
@@ -26,7 +26,7 @@ export function FinanceChart() {
     fetchData()
   }, [])
   return (
-    <ResponsiveContainer width="80%" height={500} className={"lg:absolute lg:bottom-12 md:mt-16"}>
+    <ResponsiveContainer width="80%" height={350} className="mt-10">
       <BarChart data={formattedExpenseData} margin={{ top: 20, right: 30, left: 20, bottom: 5 }}>
         <XAxis 
           dataKey="name" 
@@ -40,7 +40,7 @@ export function FinanceChart() {
           fontSize={12}
           tickLine={false}
           axisLine={true}
-          tickFormatter={(value) => `$${value}`}
+          tickFormatter={(value) => `UGX${value}`}
         />
         <Tooltip 
           cursor={{fill: 'transparent'}}
@@ -53,13 +53,13 @@ export function FinanceChart() {
         <Legend />
         <Bar 
           dataKey="income" 
-          fill="hsl(var(--primary))" 
+          fill="#4EA54A" 
           radius={[4, 4, 0, 0]} 
           barSize={20}
         />
         <Bar 
           dataKey="expenses" 
-          fill="hsl(var(--destructive))" 
+          fill="#DD2C2A" 
           radius={[4, 4, 0, 0]} 
           barSize={20}
         />

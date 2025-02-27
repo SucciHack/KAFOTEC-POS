@@ -1,8 +1,7 @@
-// import AnimatedAvatars from "@/components/AnimatedAvatars";
 import HeroSection from "@/components/hero-section";
 import { MainNav } from "@/components/navbar";
 
-export default function App() {
+export default function Page() {
   return (
     <div>
       <MainNav/>
