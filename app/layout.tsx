@@ -26,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <title>My Real Site Name</title>
+        <title>KAFOTEC</title>
         <meta name="KAFOTEC" content="KAFOTEC Milling Technologies Uganda specializes in high-quality, precision-milled maize flour and grains, using advanced technology to deliver top-notch products to both local and international markets." />
         <link rel="icon" href="/favicon.ico"/>
       </head>
