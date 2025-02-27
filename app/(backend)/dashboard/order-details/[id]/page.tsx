@@ -5,7 +5,7 @@ import React from 'react'
 export default async function page({params}:{params:Promise<{id:string}>}) {
   const {id} = await params;
 
-  const orders = await getOrders()||[];
+  const orders = await getOrders("all")||[];
   const order = orders.find((order)=> order.id === id)
   return (
     <div>
